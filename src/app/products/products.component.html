@@ -1,0 +1,209 @@
+<h2>Default Structural Directive</h2>
+<!-- <div *ngFor="let item of [1, 2, 3]">
+    <p> Number is: {{item}}</p>
+</div> -->
+
+<!-- <div *ngFor="let pro of products">
+    {{pro.id}} {{ pro.name }} {{ pro.status }}
+</div> -->
+
+
+<!-- Structural directives 
+  are written with 'aestrick' like *ngFor, *ngIf, etc. -->
+<u><h2>Default Structural Directive</h2></u>
+<!-- <table border=2>
+  <tr  *ngFor="let pro of products">
+    <td>{{ pro.id }}</td>
+    <td>{{ pro.name }}</td>
+    <td>{{ pro.status }}</td>
+  </tr>
+</table>  -->
+
+<!-- <table border=2>
+    <tr *ngFor="let customer of customers">
+      <td>{{ customer.customerNo }}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.address }}</td>
+      <td>{{ customer.city }}</td>
+      <td>{{ customer.state }}</td>
+    </tr>
+</table> -->
+
+<!--
+NgIf is a directive.
+That means, that it can be added to any tag in your template.
+-->
+
+<!-- <div *ngIf="false">
+    Login success Welcome team Hiiiii.
+</div> -->
+
+<!-- negated variable to achieve "if not" -->
+<!-- <div *ngIf="!signIn">
+    Please login, friend.
+</div> -->
+
+<!-------------------------------------------------------->
+
+ <!-- <div *ngIf="employees.length">
+  <h3 class="mb-3 text-center">Employees List</h3>
+
+  <div class="col-md-12">
+    <table border=2>
+      <thead>
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Gender</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{employee.id}}</td>
+          <td>{{employee.name}}</td>
+          <td>{{employee.email}}</td>
+          <td>{{employee.gender}}</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+</div>  -->
+
+
+
+
+
+<!---------------------------------------------------------------------->
+<!--ng-template is an Angular element used to render HTML
+   templates. We use ng-template with 
+  angular *ngIf directive to display ""else"" template.-->
+
+<!-- <ul>  
+   <li *ngIf="signIn == false;then temp11 else temp22"></li>
+   <ng-template #temp11>SignIn Success!!!</ng-template>
+   <ng-template #temp22>SignIn Please</ng-template>
+</ul> -->
+
+<!------------------------------------------------------>
+<!----Attribute directives are
+  written with 'square brackets' like[ngSwitch] [ngStyle], [ngClass], etc.-->
+
+<!-- <div [ngSwitch]="color1">
+    <h4 *ngSwitchCase="'green'" class="greencolor">Switchcase- Color is Green</h4>
+    <h4 *ngSwitchCase="'blue'"class="bluecolor">Switchcase- Color is Blue</h4>
+    <h4 *ngSwitchDefault class="warning">None of the colors selected</h4>
+</div> -->
+
+<!------------------------------------------------------------------------>
+
+<!-- <h4>NgSwitch in ngFor</h4>
+  <ul *ngFor="let b5 of people" [ngSwitch]="b5.country"> 
+  
+    <li *ngSwitchCase="'INDIA'" 
+        class="greencolor">{{ b5.name }} ({{ b5.country }})
+    </li>
+    <li *ngSwitchCase="'USA'"
+        class="bluecolor">{{ b5.name }} ({{ b5.country }})
+    </li>
+    <li *ngSwitchDefault class="warning">{{ b5.name }} ({{ b5.country }})
+    </li>
+  </ul> -->
+
+<!---------------------------------------------------------->
+<!--
+  [] - Property binding 
+  () -> Event Binding 
+
+  In Angular, property binding is used to pass data from 
+  the component class (component.ts) and setting the value of the 
+  given element in the user-end (component.html).
+-->
+<!--style binding-->
+
+<!-- <p [style.color]="'red'">Red Color paragraph</p>
+<p [style.color]="getColor1()" 
+   [style.font-size.px]="'45'"      
+   [style.background-color]="'yellow'">
+   Paragraph with multiple styles
+</p> -->
+
+<!------------------------------------------------------------------------->
+<!--The Angular ngStyle directive allows us to set the many 
+  inline style of a HTML element using an expression.-->
+
+  <!-- <div [ngStyle]="{'color': 'blue'}">ngStyle directive</div>
+
+  <p [ngStyle]="{'color': 'red',
+               'font-size': '30px',
+               'font-weight': 'bold',
+              'background-color': 'yellow'}">
+     Multiple styles
+</p> -->
+
+
+<!------button style in ngStyle with a function-->
+
+<!-- <button style='color:green' [ngStyle]="MyStyle()">
+    ngStyle Success!</button> -->
+
+<!--------------------------------------------------------------------------->
+<!-- ng-class and ng-style both are dynamically setting CSS classes.
+    ng-style is used to interpolate javascript object into style attribute, not css class.
+    ng-class directive translates your object into class attribute.
+    CSS classes are assigned to NgClass as property binding 
+ using bracket i.e [ngClass] as attribute of any HTML element .
+-->
+
+<!-- <p [ngClass]="'one'">
+    Using NgClass with String.
+</p>
+
+  css two considered!-->
+<!-- <p [ngClass]="['one','two','three']">
+    Using NgClass with Array.
+</p>  -->
+
+  <!--multiple directives-->
+
+<!-- <div *ngFor="let i of ['apple', 'orange', 'banana']" [ngClass]="'one two'">
+    {{i}}
+</div> -->
+
+
+<!------------------------PIPES------------->
+ <!--filters(angular 2) or pipes::
+Currency pipe
+Date pipe
+Decimal pipe
+Json pipe
+Number pipe
+Conversion pipe(uppercase,lowercase)
+-->
+
+ <h1>{{"Nithiskumar"|uppercase}}</h1>
+<h1>Uppercase Pipe:</h1>
+<b>{{name | uppercase}}</b><br/>
+
+<h1>Lowercase Pipe:</h1>
+<b>{{name | lowercase}}</b>
+
+<h1>Date pipe:</h1>
+<b>{{todaydate1 | date}}</b><br>
+<b>{{todaydate | date:'d/M/y'}}</b><br/>
+<b>{{todaydate | date:'shortTime'}}</b><br/>
+<b>{{todaydate | date:'shortDate'}}</b><br/>
+
+<h1>Currency Pipe</h1>  
+      
+        <b>{{540000.00 | currency}}</b>  
+        <br/>
+        <b>{{54960000 | currency : 'INR'}}</b>  
+        <br/> 
+        <h1>Decimal Pipe</h1>  
+          <b>{{ 454.78787814 | number: '3.2' }}</b>
+
+
+<!--------EVENT EMITTER--------------------->
+<!-- <u><h2>Event Emitter</h2></u> -->
+
